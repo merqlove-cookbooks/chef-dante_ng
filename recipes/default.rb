@@ -5,7 +5,10 @@
 # Copyright 2018, Alexander Merkulov
 #
 
-execute "rpm -ivh #{node['dante_ng']['packages'].join(" ")}"
+execute "install dante" do
+  command "rpm -ivh #{node['dante_ng']['packages'].join(" ")}"
+  not_if "which /etc/init.d/#{node['dante_ng']['service']}"
+end
 
 user node['dante_ng']['username'] do
   comment 'Dante User'
@@ -21,7 +24,7 @@ template node['dante_ng']['config_path'] do
   group 'root'
 end
 
-service 'sockd' do
-  service_name 'sockd'
+service node['dante_ng']['service'] do
+  service_name node['dante_ng']['service']
   action [:start, :enable]
 end
