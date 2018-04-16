@@ -18,8 +18,8 @@ user node['dante_ng']['username'] do
 end
 
 template node['dante_ng']['config_path'] do
-  source 'socks.conf.erb'
-  mode '0440'
+  source 'sockd.conf.erb'
+  mode '0600'
   owner 'root'
   group 'root'
 end
