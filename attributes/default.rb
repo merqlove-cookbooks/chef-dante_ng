@@ -8,7 +8,7 @@ default['dante_ng']['packages'] = [
   "https://rpmfind.net/linux/dag/redhat/el6/en/x86_64/dag/RPMS/miniupnpc-devel-1.5-1.el6.rf.x86_64.rpm"
 ]
 
-default['dante_ng']['config_path'] = '/etc/sockd.conf'
+default['dante_ng']['config_path'] = '/etc/socks.conf'
 
 default['dante_ng']["config"]['socksmethod'] = 'username'
 default['dante_ng']["config"]['logoutput'] = 'stderr'
