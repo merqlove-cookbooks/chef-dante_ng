@@ -1,0 +1,21 @@
+logoutput: <%= node['dante_ng']['config']['logoutput'] %>
+
+<% node['dante_ng']['config']['internals'].each do |i| %>
+internal: <%= i.interface %> port = <%= i.port %>
+<% end -%>
+
+external: <%= node['dante_ng']['config']['internals'] %>
+
+socksmethod: <%= node['dante_ng']['config']['socksmethod'] %>
+user.privileged: <%= node['dante_ng']['config']['user.privileged'] %>
+user.nonprivileged: <%= node['dante_ng']['config']['user.nonprivileged'] %>
+
+client pass {
+from: <%= node['dante_ng']['config']['client_pass']['from'] %> to: <%= node['dante_ng']['config']['client_pass']['to'] %>
+log: <%= node['dante_ng']['config']['client_pass']['log'] %> 
+}
+socks pass {
+from: <%= node['dante_ng']['config']['socks_pass']['from'] %> to: <%= node['dante_ng']['config']['socks_pass']['to'] %>
+protocol: <%= node['dante_ng']['config']['socks_pass']['protocols'] %> 
+llog: <%= node['dante_ng']['config']['socks_pass']['log'] %> 
+}
