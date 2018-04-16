@@ -30,3 +30,8 @@ template node['dante_ng']['config_path'] do
   owner 'root'
   group 'root'
 end
+
+service 'sockd' do
+  service_name 'sockd'
+  action [:start, :enable]
+end
