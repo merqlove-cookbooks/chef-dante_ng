@@ -5,17 +5,7 @@
 # Copyright 2018, Alexander Merkulov
 #
 
-yum_repository 'rpmforge' do
-  mirrorlist 'http://mirrorlist.repoforge.org/el6/mirrors-rpmforge'
-  description 'RHEL $releasever - RPMforge.net - dag'
-  enabled true
-  gpgcheck true
-  gpgkey 'http://apt.sw.be/RPM-GPG-KEY.dag.txt'
-end
-
-node['dante_ng']['packages'].each do |p|
-  package p
-end
+execute "rpm -ivh #{node['dante_ng']['packages'].join(" ")}"
 
 user node['dante_ng']['username'] do
   comment 'Dante User'

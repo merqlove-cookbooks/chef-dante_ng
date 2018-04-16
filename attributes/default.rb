@@ -1,6 +1,11 @@
 default['dante_ng']['username'] = 'username'
 default['dante_ng']['password'] = '$1$4GSegYQW$XNIOjydYHkiLl3.R8MTd5/'
-default['dante_ng']['packages'] = %w(dante-server dante)
+default['dante_ng']['packages'] = [
+  "ftp://rpmfind.net/linux/dag/redhat/el6/en/x86_64/dag/RPMS/dante-1.4.0-1.el6.rf.x86_64.rpm",
+  "http://pkgs.repoforge.org/dante/dante-server-1.4.0-1.el6.rf.x86_64.rpm",
+  "http://pkgs.repoforge.org/miniupnpc/miniupnpc-devel-1.5-1.el6.rf.x86_64.rpm",
+  "http://pkgs.repoforge.org/miniupnpc/miniupnpc-1.5-1.el6.rf.x86_64.rpm"
+]
 
 default['dante_ng']['config_path'] = '/etc/sockd.conf'
 
