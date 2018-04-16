@@ -1,7 +1,7 @@
 logoutput: <%= node['dante_ng']['config']['logoutput'] %>
 
-<% node['dante_ng']['config']['internals'].each do |i| %>
-internal: <%= i.interface %> port = <%= i.port %>
+<% node['dante_ng']['config']['internals'].each do |interface, port| %>
+internal: <%= interface %> port = <%= port %>
 <% end -%>
 
 external: <%= node['dante_ng']['config']['internals'] %>
