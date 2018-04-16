@@ -19,7 +19,7 @@ default['dante_ng']["config"]['internals'] = {
 default['dante_ng']["config"]['external'] = 'eth0'
 default['dante_ng']["config"]['socksmethod'] = 'username'
 default['dante_ng']["config"]['user.privileged'] = 'root'
-default['dante_ng']["config"]['user.notprivileged'] = node['dante_ng']['user']
+default['dante_ng']["config"]['user.notprivileged'] = node['dante_ng']['username']
 default['dante_ng']["config"]['client_pass'] = {
   from: "0.0.0.0/0",
   to: "0.0.0.0/0",
