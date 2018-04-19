@@ -21,3 +21,7 @@ template "/etc/systemd/system/#{node['dante_ng']['service']}.service" do
   notifies :enable, "service[#{node['dante_ng']['service']}]", :immediately
   notifies :restart, "service[#{node['dante_ng']['service']}]", :delayed
 end
+
+execute 'systemctl daemon-reload' do
+  action :nothing
+end
