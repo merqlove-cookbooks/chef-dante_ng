@@ -5,6 +5,6 @@
 # Copyright 2018, Alexander Merkulov
 #
 
-include_recipe 'install'
-include_recipe 'setup'
-include_recipe 'service'
+include_recipe 'dante_ng::install'
+include_recipe 'dante_ng::setup'
+include_recipe 'dante_ng::service'
