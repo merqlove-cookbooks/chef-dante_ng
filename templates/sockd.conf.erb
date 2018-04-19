@@ -17,7 +17,7 @@ log: <%= node['dante_ng']['config']['client_pass']['log'] %>
 }
 socks pass {
 from: <%= node['dante_ng']['config']['socks_pass']['from'] %> to: <%= node['dante_ng']['config']['socks_pass']['to'] %>
-socksmethod: <%= node['dante_ng']['config']['socks_pass']['protocol'] %> 
-protocol: <%= node['dante_ng']['config']['socks_pass']['socksmethod'] %> 
+socksmethod: <%= node['dante_ng']['config']['socks_pass']['socksmethod'] %> 
+protocol: <%= node['dante_ng']['config']['socks_pass']['protocol'] %> 
 log: <%= node['dante_ng']['config']['socks_pass']['log'] %> 
 }
