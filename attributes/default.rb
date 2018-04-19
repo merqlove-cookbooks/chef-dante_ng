@@ -12,7 +12,7 @@ default['dante_ng']['packages'] = [
 ]
 
 default['dante_ng']['config_path'] = '/etc/sockd.conf'
-default['dante_ng']['path'] = '/etc/local'
+default['dante_ng']['path'] = '/usr/local'
 
 default['dante_ng']["config"]['socksmethod'] = 'pam'
 default['dante_ng']["config"]['logoutput'] = 'stderr'
