@@ -5,7 +5,7 @@
 # Copyright 2018, Alexander Merkulov
 #
 
-service node['dante_ng']['service'] do
+service "#{node['dante_ng']['service']}.service" do
   supports status: true, restart: true, stop: true, start: true
   action :nothing
   ignore_failure true
