@@ -14,7 +14,8 @@ end
 
 template node['dante_ng']['config_path'] do
   source 'sockd.conf.erb'
-  mode '0600'
+  mode '0644'
   owner 'root'
   group 'root'
+  notifies :restart, "service[#{node['dante_ng']['service']}.service]", :delayed
 end
