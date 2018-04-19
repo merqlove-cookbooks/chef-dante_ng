@@ -32,7 +32,5 @@ default['dante_ng']["config"]['socks_pass'] = {
   from: "0/0",
   to: "0/0",
   protocol: "tcp udp",
-  socksmethod: node['dante_ng']["config"]['socksmethod'],
-  command: "udpreply"
   log: "connect disconnect error"
 }
