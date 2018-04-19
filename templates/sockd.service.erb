@@ -3,10 +3,9 @@
 [Unit]
 Description=Dante Socks5 Daemon
 ConditionPathExists=<%= node['dante_ng']['config_path'] %>
-ConditionPathExists=!/var/run/sockd.pid
 
 [Service]
-ExecStart=<%= node['dante_ng']['path'] %>/sbin/sockd -D -f <%= node['dante_ng']['config_path'] %>
+ExecStart=<%= node['dante_ng']['path'] %>/sbin/sockd -f <%= node['dante_ng']['config_path'] %>
 ExecReload=/bin/kill -HUP $MAINPID
 PIDFile=/var/run/sockd.pid
 KillMode=process
@@ -14,4 +13,3 @@ Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
-Alias=sockd.service
