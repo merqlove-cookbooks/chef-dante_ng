@@ -14,7 +14,8 @@ default['dante_ng']['packages'] = [
 default['dante_ng']['config_path'] = '/etc/sockd.conf'
 default['dante_ng']['path'] = '/usr/local'
 
-default['dante_ng']["config"]['socksmethod'] = 'pam'
+default['dante_ng']["config"]['clientmethod'] = 'none'
+default['dante_ng']["config"]['socksmethod'] = 'username'
 default['dante_ng']["config"]['logoutput'] = 'stderr'
 default['dante_ng']["config"]['internals'] = {
   "eth0": 57500
@@ -23,14 +24,15 @@ default['dante_ng']["config"]['external'] = 'eth0'
 default['dante_ng']["config"]['user.privileged'] = 'root'
 default['dante_ng']["config"]['user.notprivileged'] = node['dante_ng']['username']
 default['dante_ng']["config"]['client_pass'] = {
-  from: "0.0.0.0/0",
-  to: "0.0.0.0/0",
+  from: "0/0",
+  to: "0/0",
   log: "error"
 }
 default['dante_ng']["config"]['socks_pass'] = {
-  from: "0.0.0.0/0",
-  to: "0.0.0.0/0",
-  socksmethod: "pam",
+  from: "0/0",
+  to: "0/0",
   protocol: "tcp udp",
+  socksmethod: node['dante_ng']["config"]['socksmethod'],
+  command: "udpreply"
   log: "connect disconnect error"
 }
