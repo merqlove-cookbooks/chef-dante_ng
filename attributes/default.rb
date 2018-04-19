@@ -2,8 +2,8 @@ default['dante_ng']['service'] = 'sockd'
 default['dante_ng']['username'] = 'username'
 default['dante_ng']['password'] = '$1$kcSDsFuP$Cgnz7eWjWInLF8dEHtgFk/' # 12345678
 
-default['dante_ng']['verion'] = '1.4.2'
-default['dante_ng']['url'] = "https://www.inet.no/dante/files/dante-#{node['dante_ng']['verion']}.tar.gz"
+default['dante_ng']['version'] = '1.4.2'
+default['dante_ng']['url'] = "https://www.inet.no/dante/files/dante-#{node['dante_ng']['version']}.tar.gz"
 default['dante_ng']['checksum'] = 'baa25750633a7f9f37467ee43afdf7a95c80274394eddd7dcd4e1542aa75caad'
 
 default['dante_ng']['packages'] = [
