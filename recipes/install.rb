@@ -21,26 +21,9 @@ bash 'compile_dante_from_source' do
   code <<-EOH
     tar -xvf dante-#{node['dante_ng']['version']}.tar.gz
     cd dante-#{node['dante_ng']['version']}
+    ./configure
     make && make install
   EOH
   action :nothing
 end
 
-user node['dante_ng']['username'] do
-  comment 'Dante User'
-  home "/home/#{node['dante_ng']['username']}"
-  shell '/bin/false'
-  password node['dante_ng']['password']
-end
-
-template node['dante_ng']['config_path'] do
-  source 'sockd.conf.erb'
-  mode '0600'
-  owner 'root'
-  group 'root'
-end
-
-service node['dante_ng']['service'] do
-  service_name node['dante_ng']['service']
-  action [:start, :enable]
-end
