@@ -6,7 +6,6 @@
 #
 
 service node['dante_ng']['service'] do
-  service_name node['dante_ng']['service']
   supports status: true, restart: true, stop: true, start: true
   action :nothing
   ignore_failure true
@@ -18,8 +17,8 @@ template "/etc/systemd/system/#{node['dante_ng']['service']}.service" do
   group 'root'
   mode 0o0755
   notifies :run, 'execute[systemctl daemon-reload]', :immediately
-  notifies :enable, "service[#{node['dante_ng']['service']}]", :immediately
-  notifies :restart, "service[#{node['dante_ng']['service']}]", :delayed
+  notifies :enable, "service[#{node['dante_ng']['service']}.service]", :immediately
+  notifies :restart, "service[#{node['dante_ng']['service']}.service]", :delayed
 end
 
 execute 'systemctl daemon-reload' do
