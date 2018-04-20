@@ -1,5 +1,5 @@
 default['dante_ng']['service'] = 'sockd'
-default['dante_ng']['username'] = 'username'
+default['dante_ng']['username'] = 'sockd'
 default['dante_ng']['password'] = '$1$kcSDsFuP$Cgnz7eWjWInLF8dEHtgFk/' # 12345678
 
 default['dante_ng']['version'] = '1.4.2'
@@ -22,7 +22,7 @@ default['dante_ng']["config"]['internals'] = {
 }
 default['dante_ng']["config"]['external'] = 'eth0'
 default['dante_ng']["config"]['user.privileged'] = 'root'
-default['dante_ng']["config"]['user.notprivileged'] = node['dante_ng']['username']
+default['dante_ng']["config"]['user.notprivileged'] = 'sockd'
 default['dante_ng']["config"]['client_pass'] = {
   from: "0/0",
   to: "0/0",
@@ -32,5 +32,6 @@ default['dante_ng']["config"]['socks_pass'] = {
   from: "0/0",
   to: "0/0",
   protocol: "tcp udp",
+  command: "bind connect udpassociate bindreply udpreply",
   log: "connect disconnect error"
 }
