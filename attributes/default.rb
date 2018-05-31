@@ -22,7 +22,7 @@ default['dante_ng']["config"]['internals'] = {
 }
 default['dante_ng']["config"]['external'] = 'eth0'
 default['dante_ng']["config"]['user.privileged'] = 'root'
-default['dante_ng']["config"]['user.notprivileged'] = 'sockd'
+default['dante_ng']["config"]['user.notprivileged'] = nil
 default['dante_ng']["config"]['client_pass'] = {
   from: "0/0",
   to: "0/0",
